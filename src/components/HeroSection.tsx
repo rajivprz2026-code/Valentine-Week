@@ -1,6 +1,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import heroRoseImg from "../assets/hero-rose.jpg"
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ const HeroSection = () => {
         <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
             style={{ 
-                backgroundImage: "url('/src/assets/hero-rose.jpg')" 
+                backgroundImage: `url(${heroRoseImg})`
             }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-burgundy/70 via-burgundy/50 to-background" />
