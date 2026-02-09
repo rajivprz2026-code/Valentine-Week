@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 30% 97%;
+    --foreground: 345 40% 15%;
+
+    --card: 10 25% 95%;
+    --card-foreground: 345 40% 15%;
+
+    --popover: 10 30% 97%;
+    --popover-foreground: 345 40% 15%;
+
+    --primary: 345 70% 45%;
+    --primary-foreground: 10 30% 97%;
+
+    --secondary: 340 50% 85%;
+    --secondary-foreground: 345 40% 15%;
+
+    --muted: 340 30% 90%;
+    --muted-foreground: 345 20% 40%;
+
+    --accent: 30 60% 55%;
+    --accent-foreground: 10 30% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 30% 85%;
+    --input: 340 30% 85%;
+    --ring: 345 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom romantic tokens */
+    --rose-deep: 345 80% 35%;
+    --rose-light: 340 60% 75%;
+    --rose-blush: 350 50% 90%;
+    --rose-gold: 30 55% 55%;
+    --cream: 30 40% 95%;
+    --petal-pink: 340 70% 65%;
+    --burgundy: 345 60% 22%;
+    --warm-glow: 25 80% 60%;
+
+    --font-display: 'Great Vibes', cursive;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+
+    --gradient-romantic: linear-gradient(135deg, hsl(345 80% 35%), hsl(340 70% 65%), hsl(30 55% 55%));
+    --gradient-blush: linear-gradient(180deg, hsl(350 50% 90%), hsl(30 40% 95%));
+    --gradient-hero: linear-gradient(180deg, hsla(345 80% 20% / 0.8), hsla(345 60% 30% / 0.6), transparent);
+    --shadow-romantic: 0 8px 32px hsla(345 70% 45% / 0.2);
+    --shadow-petal: 0 4px 16px hsla(340 60% 75% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .gradient-blush {
+    background: var(--gradient-blush);
+  }
+
+  .shadow-romantic {
+    box-shadow: var(--shadow-romantic);
+  }
+
+  .shadow-petal {
+    box-shadow: var(--shadow-petal);
+  }
+
+  .text-rose-deep {
+    color: hsl(var(--rose-deep));
+  }
+
+  .text-rose-gold {
+    color: hsl(var(--rose-gold));
+  }
+
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+
+  .bg-rose-blush {
+    background-color: hsl(var(--rose-blush));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-romantic {
+    background: linear-gradient(135deg, #e11d48 0%, #fda4af 100%);
+  }
+
+  .shadow-petal {
+    box-shadow: 0 10px 30px -10px rgba(253, 164, 175, 0.5);
+  }
+
+  .shadow-romantic {
+    box-shadow: 0 20px 40px -15px rgba(225, 29, 72, 0.3);
+  }
+}
