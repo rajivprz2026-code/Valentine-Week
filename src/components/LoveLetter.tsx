@@ -47,7 +47,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
               >
-                Mero Kanchuu 🌹
+                Mero Appuu 🌹
               </motion.p>
             </div>
 
@@ -59,7 +59,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
               transition={{ delay: 1 }}
             >
               <p className="font-heading text-lg text-foreground leading-relaxed">
-                My Dearest Kanchuu,
+                My Dearest Appuu,
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">
@@ -73,7 +73,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                 Babe, you make my world bloom with colors I never knew existed. 
                 Your love is like the sweetest fragrance that fills my soul with 
                 warmth and happiness. With every sunrise, I fall in love with you 
-                all over again, Kanchuu.
+                all over again, Appuu.
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">
@@ -93,7 +93,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                   Forever and always yours,
                 </p>
                 <p className="font-display text-3xl text-rose-deep mt-2">
-                  Rajiv 💕
+                  Love 💕
                 </p>
               </div>
 

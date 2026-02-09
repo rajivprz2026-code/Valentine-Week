@@ -9,7 +9,7 @@ interface LetterProps {
   signature?: string;
 }
 
-const Letter: React.FC<LetterProps> = ({ isOpen, onClose, message, signature = "Forever Yours, Rajiv ❤️" }) => {
+const Letter: React.FC<LetterProps> = ({ isOpen, onClose, message, signature = "Forever Yours, Love ❤️" }) => {
   return (
     <AnimatePresence>
       {isOpen && (

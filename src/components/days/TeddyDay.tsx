@@ -31,7 +31,7 @@ const TeddyDay = ({ onComplete }: { onComplete: () => void }) => {
         isOpen={showLetter}
         onClose={handleClose}
         message="My dearest, just like a teddy bear, I want to be your comfort, your warmth, and your safe place forever. When the world feels cold, I promise to hold you close and never let go. You are my softest hug and my sweetest dream come true. Happy Teddy Day, my love! 🧸🤎"
-        signature="Your Cuddly Bear, Rajiv"
+        signature="Your Cuddly Bear, Love"
       />
 
       <motion.h2

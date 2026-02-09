@@ -30,8 +30,8 @@ const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="To my beloved Kanchuu, on this Propose Day, I don't just want to ask you for your hand, but for your heart, your laughter, your tears, and your forever. I promise to be the one who wipes your tears, shares your joys, and walks beside you through every storm and sunshine. Will you let me make you the happiest woman in the world? Use this ring as a symbol of my unending commitment to you. I love you, now and forever. 💍❤️"
-        signature="Yours Always, Rajiv"
+        message="To my beloved Appuu, on this Propose Day, I don't just want to ask you for your hand, but for your heart, your laughter, your tears, and your forever. I promise to be the one who wipes your tears, shares your joys, and walks beside you through every storm and sunshine. Will you let me make you the happiest woman in the world? Use this ring as a symbol of my unending commitment to you. I love you, now and forever. 💍❤️"
+        signature="Yours Always, Love"
       />
 
       <motion.h2 

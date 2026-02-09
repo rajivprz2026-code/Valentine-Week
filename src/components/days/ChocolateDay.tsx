@@ -57,8 +57,8 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="To my sweetest Kanchuu, on this Chocolate Day, I want things between us to be as sweet as these chocolates, but without any expiration date! You bring a flavor to my life that no candy in the world can replicate. Your smile is sugar, your love is the cocoa that warms my soul. I promise to keep our life filled with sweetness and joy. Happy Chocolate Day! 🍫❤️"
-        signature="Your Sweetest, Rajiv"
+        message="To my sweetest Appuu, on this Chocolate Day, I want things between us to be as sweet as these chocolates, but without any expiration date! You bring a flavor to my life that no candy in the world can replicate. Your smile is sugar, your love is the cocoa that warms my soul. I promise to keep our life filled with sweetness and joy. Happy Chocolate Day! 🍫❤️"
+        signature="Your Sweetest, Love"
       />
 
       <h2 className="font-display text-4xl sm:text-5xl md:text-7xl text-rose-deep mb-2">

@@ -14,7 +14,7 @@ const flowers: FlowerItem[] = [
     emoji: "🌹",
     name: "Red Rose",
     color: "from-rose-deep to-petal",
-    message: "A red rose for the love that burns bright in my heart every single day, Kanchuu. You are my forever flame. 🔥",
+    message: "A red rose for the love that burns bright in my heart every single day, Appuu. You are my forever flame. 🔥",
   },
   {
     emoji: "🌷",
@@ -26,7 +26,7 @@ const flowers: FlowerItem[] = [
     emoji: "🌸",
     name: "Cherry Blossom",
     color: "from-rose-light to-rose-blush",
-    message: "Delicate like cherry blossoms, your love is the most beautiful thing in my life. Forever yours, Kanchuu. 💕",
+    message: "Delicate like cherry blossoms, your love is the most beautiful thing in my life. Forever yours, Appuu. 💕",
   },
   {
     emoji: "🌻",
@@ -38,7 +38,7 @@ const flowers: FlowerItem[] = [
     emoji: "🌺",
     name: "Hibiscus",
     color: "from-primary to-rose-deep",
-    message: "Exotic and mesmerizing, just like you. Every moment with you feels like paradise, Kanchuu. 🏝️",
+    message: "Exotic and mesmerizing, just like you. Every moment with you feels like paradise, Appuu. 🏝️",
   },
   {
     emoji: "💐",
@@ -118,7 +118,7 @@ const FlowerGallery = () => {
               <p className="font-body text-lg text-foreground leading-relaxed italic">
                 "{flowers[selectedFlower].message}"
               </p>
-              <p className="mt-4 font-display text-2xl text-rose-deep">— Rajiv</p>
+              <p className="mt-4 font-display text-2xl text-rose-deep">— Love</p>
             </motion.div>
           )}
         </AnimatePresence>

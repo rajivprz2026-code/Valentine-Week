@@ -20,8 +20,8 @@ const RoseFooter = () => {
           Made with Love
         </p>
         <p className="font-heading text-base md:text-lg text-rose-blush/80">
-          By <span className="text-warm font-semibold">Rajiv</span> for his lovely baby{" "}
-          <span className="text-warm font-semibold">Kanchuu</span> 💕
+          By <span className="text-warm font-semibold">Love</span> for his lovely baby{" "}
+          <span className="text-warm font-semibold">Appuu</span> 💕
         </p>
         <p className="font-body text-xs sm:text-sm text-rose-blush/50 mt-1">
           7th – 14th February • Valentine's Week 🌹

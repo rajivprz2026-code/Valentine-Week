@@ -133,8 +133,8 @@ const RosePlanting = ({ onRoseComplete }: RosePlantingProps) => {
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="My darling Kanchuu, on this Rose Day, I want to tell you that you are the most beautiful flower in the garden of my life. Just as a rose spreads fragrance, you have filled my life with the scent of your love. Every petal of my heart belongs to you, and I promise to nurture our love with growing affection and care, forever and always. Happy Rose Day, my love! 🌹"
-        signature="Eternally Yours, Rajiv"
+        message="My darling Appuu, on this Rose Day, I want to tell you that you are the most beautiful flower in the garden of my life. Just as a rose spreads fragrance, you have filled my life with the scent of your love. Every petal of my heart belongs to you, and I promise to nurture our love with growing affection and care, forever and always. Happy Rose Day, my love! 🌹"
+        signature="Eternally Yours, Love"
       />
 
       <motion.div className="max-w-xl mx-auto text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>

@@ -94,7 +94,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
         >
-            For My Kanchuu
+            For My Appuu
         </motion.p>
 
         <motion.div
