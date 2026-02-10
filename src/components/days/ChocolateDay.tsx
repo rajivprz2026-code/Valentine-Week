@@ -4,9 +4,8 @@ import EmojiShower from '../effects/EmojiShower';
 import Letter from '../ui/Letter';
 import { useNames } from '../../lib/name-context';
 
-
 const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
-  const { girl } = useNames(); // <-- get girl's name
+  const { boy, girl } = useNames(); // <-- get both boy and girl names
 
   const [chocolates, setChocolates] = useState<{id: number, x: number, y: number, text: string}[]>([]);
   const [poppedCount, setPoppedCount] = useState(0);
@@ -54,7 +53,7 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
         isOpen={showLetter} 
         onClose={handleClose} 
         message={`To my sweetest ${girl}, on this Chocolate Day, I want things between us to be as sweet as these chocolates, but without any expiration date! You bring a flavor to my life that no candy in the world can replicate. Your smile is sugar, your love is the cocoa that warms my soul. I promise to keep our life filled with sweetness and joy. Happy Chocolate Day! 🍫❤️`}
-        signature="Your Sweetest, Love"
+        signature={`Your Sweetest, ${boy}`} // <-- dynamic boy's name
       />
 
       <h2 className="font-display text-4xl sm:text-5xl md:text-7xl text-rose-deep mb-2">
