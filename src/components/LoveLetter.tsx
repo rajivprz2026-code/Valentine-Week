@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useNames } from "../lib/name-context";
 
 interface LoveLetterProps {
   visible: boolean;
@@ -6,6 +7,8 @@ interface LoveLetterProps {
 }
 
 const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
+  const { boy, girl } = useNames();
+
   return (
     <AnimatePresence>
       {visible && (
@@ -47,7 +50,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
               >
-                Mero Appuu 🌹
+                Mero {girl} 🌹
               </motion.p>
             </div>
 
@@ -59,7 +62,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
               transition={{ delay: 1 }}
             >
               <p className="font-heading text-lg text-foreground leading-relaxed">
-                My Dearest Appuu,
+                My Dearest {girl},
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">
@@ -73,7 +76,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                 Babe, you make my world bloom with colors I never knew existed. 
                 Your love is like the sweetest fragrance that fills my soul with 
                 warmth and happiness. With every sunrise, I fall in love with you 
-                all over again, Appuu.
+                all over again, {girl}.
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">
@@ -93,7 +96,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
                   Forever and always yours,
                 </p>
                 <p className="font-display text-3xl text-rose-deep mt-2">
-                  Love 💕
+                  {boy} 💕
                 </p>
               </div>
 
