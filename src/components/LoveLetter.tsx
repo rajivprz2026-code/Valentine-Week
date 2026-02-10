@@ -73,7 +73,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">
-                Babe, you make my world bloom with colors I never knew existed. 
+                {girl}, you make my world bloom with colors I never knew existed. 
                 Your love is like the sweetest fragrance that fills my soul with 
                 warmth and happiness. With every sunrise, I fall in love with you 
                 all over again, {girl}.
@@ -82,7 +82,7 @@ const LoveLetter = ({ visible, onClose }: LoveLetterProps) => {
               <p className="font-body text-foreground/80 leading-relaxed">
                 Just like we planted our rose together today, I want to nurture 
                 our love every day — with care, with patience, and with all the 
-                love in my heart. You are my sunshine, my rose, and my everything, babe. 🌹
+                love in my heart. You are my sunshine, my rose, and my everything, {girl}. 🌹
               </p>
 
               <p className="font-body text-foreground/80 leading-relaxed">

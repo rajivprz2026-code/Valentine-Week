@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNames } from "../lib/name-context"; // import the context hook
 
 interface HeartsExplosionProps {
   active: boolean;
@@ -20,6 +21,8 @@ interface Heart {
 const HEART_EMOJIS = ["❤️", "💕", "💖", "💗", "💝", "💘", "🌹", "💞", "🥰", "😍", "💓", "💟", "❣️"];
 
 const HeartsExplosion = ({ active, onComplete }: HeartsExplosionProps) => {
+  const { girl } = useNames(); // grab girl's name
+
   const [hearts, setHearts] = useState<Heart[]>([]);
   const [wave2, setWave2] = useState<Heart[]>([]);
 
@@ -166,7 +169,7 @@ const HeartsExplosion = ({ active, onComplete }: HeartsExplosionProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.5, duration: 0.8 }}
               >
-                Mero Appuu 🌹
+                Mero {girl} 🌹 {/* dynamically shows the girl’s name */}
               </motion.p>
             </div>
           </motion.div>

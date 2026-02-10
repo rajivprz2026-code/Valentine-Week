@@ -1,10 +1,12 @@
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EmojiShower from '../effects/EmojiShower';
 import Letter from '../ui/Letter';
+import { useNames } from '../../lib/name-context'; // <-- import context
 
 const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
+  const { boy, girl } = useNames(); // <-- get boy and girl names
+
   const [step, setStep] = useState(0);
   const [showEffects, setShowEffects] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
@@ -27,11 +29,12 @@ const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="max-w-xl mx-auto text-center relative p-8">
       <EmojiShower active={showEffects} emojis={['💍', '✨', '💖', '👰', '💎', '🤍']} duration={6000} density="high" />
+      
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="To my beloved Appuu, on this Propose Day, I don't just want to ask you for your hand, but for your heart, your laughter, your tears, and your forever. I promise to be the one who wipes your tears, shares your joys, and walks beside you through every storm and sunshine. Will you let me make you the happiest woman in the world? Use this ring as a symbol of my unending commitment to you. I love you, now and forever. 💍❤️"
-        signature="Yours Always, Love"
+        message={`To my beloved ${girl}, on this Propose Day, I don't just want to ask you for your hand, but for your heart, your laughter, your tears, and your forever. I promise to be the one who wipes your tears, shares your joys, and walks beside you through every storm and sunshine. Will you let me make you the happiest woman in the world? Use this ring as a symbol of my unending commitment to you. I love you, now and forever. 💍❤️`}
+        signature={`Yours Always, ${boy}`}
       />
 
       <motion.h2 
@@ -53,26 +56,19 @@ const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
 
       <div className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto mb-8 sm:mb-10">
         <div className="relative h-[250px] sm:h-[300px] flex items-center justify-center">
-            {/* Ring Scale Animation based on steps */}
             <motion.div 
                 className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full pointer-events-none"
-                style={{ 
-                    background: "radial-gradient(circle, rgba(203, 140, 77, 0.3), transparent 70%)" 
-                }}
+                style={{ background: "radial-gradient(circle, rgba(203, 140, 77, 0.3), transparent 70%)" }}
                 animate={{ scale: 1 + (step * 0.2) }}
             />
             
             <motion.div 
                 className="text-6xl sm:text-7xl md:text-8xl relative z-10 select-none"
-                animate={{ 
-                    scale: 1 + (step * 0.15),
-                    rotate: step * 10 
-                }}
+                animate={{ scale: 1 + (step * 0.15), rotate: step * 10 }}
             >
                 💍
             </motion.div>
             
-            {/* Letters appearing around */}
             <AnimatePresence>
                 {step >= 1 && <motion.div initial={{opacity:0, x:-80, y:-50}} animate={{opacity:1}} className="absolute text-2xl font-display text-rose-500">L</motion.div>}
                 {step >= 2 && <motion.div initial={{opacity:0, x:80, y:-50}} animate={{opacity:1}} className="absolute text-2xl font-display text-rose-500">O</motion.div>}
@@ -91,7 +87,7 @@ const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
           />
         </div>
         <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-heading">
-            {step === 5 ? "Forever Yours! ❤️" : `${step}/5 — Keep going, babe!`}
+            {step === 5 ? `Forever Yours! ❤️` : `${step}/5 — Keep going, ${boy}!`}
         </p>
       </div>
 

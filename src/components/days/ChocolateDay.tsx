@@ -1,10 +1,13 @@
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EmojiShower from '../effects/EmojiShower';
 import Letter from '../ui/Letter';
+import { useNames } from '../../lib/name-context';
+
 
 const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
+  const { girl } = useNames(); // <-- get girl's name
+
   const [chocolates, setChocolates] = useState<{id: number, x: number, y: number, text: string}[]>([]);
   const [poppedCount, setPoppedCount] = useState(0);
   const [showEffects, setShowEffects] = useState(false);
@@ -14,29 +17,21 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
 
   const spawnChocolate = () => {
     const id = Date.now() + Math.random();
-    const x = Math.random() * 80 + 10; // 10-90%
-    const y = Math.random() * 60 + 20; // 20-80%
+    const x = Math.random() * 80 + 10;
+    const y = Math.random() * 60 + 20;
     const text = CHOCO_EMOJIS[Math.floor(Math.random() * CHOCO_EMOJIS.length)];
-    
     setChocolates(prev => [...prev, { id, x, y, text }]);
   };
 
   const popChocolate = (id: number) => {
     setChocolates(prev => prev.filter(c => c.id !== id));
     setPoppedCount(prev => prev + 1);
-    
-    // Spawn a new one to keep the game going until limit
-    if (poppedCount < 5) {
-        spawnChocolate();
-    }
+    if (poppedCount < 5) spawnChocolate();
   };
 
   useEffect(() => {
-    // Initial spawn
     const interval = setInterval(() => {
-        if (chocolates.length < 5 && poppedCount < 7) {
-            spawnChocolate();
-        }
+        if (chocolates.length < 5 && poppedCount < 7) spawnChocolate();
     }, 800);
     return () => clearInterval(interval);
   }, [chocolates.length, poppedCount]);
@@ -46,7 +41,7 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
       setTimeout(() => setShowLetter(true), 3000);
   };
 
-   const handleClose = () => {
+  const handleClose = () => {
       setShowLetter(false);
       onComplete();
   };
@@ -54,10 +49,11 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="max-w-xl mx-auto text-center relative min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
       <EmojiShower active={showEffects} emojis={CHOCO_EMOJIS} duration={6000} density="high" />
+      
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="To my sweetest Appuu, on this Chocolate Day, I want things between us to be as sweet as these chocolates, but without any expiration date! You bring a flavor to my life that no candy in the world can replicate. Your smile is sugar, your love is the cocoa that warms my soul. I promise to keep our life filled with sweetness and joy. Happy Chocolate Day! 🍫❤️"
+        message={`To my sweetest ${girl}, on this Chocolate Day, I want things between us to be as sweet as these chocolates, but without any expiration date! You bring a flavor to my life that no candy in the world can replicate. Your smile is sugar, your love is the cocoa that warms my soul. I promise to keep our life filled with sweetness and joy. Happy Chocolate Day! 🍫❤️`}
         signature="Your Sweetest, Love"
       />
 
@@ -94,18 +90,18 @@ const ChocolateDay = ({ onComplete }: { onComplete: () => void }) => {
         </p>
       </div>
 
-        {poppedCount >= 5 && !showEffects && (
-            <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-8 z-10"
-            >
-                 <p className="text-xl text-rose-600 font-bold mb-4">You are sweeter than all of these! 🥰</p>
-                 <button onClick={handleFinish} className="px-6 py-2 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition shadow-lg animate-bounce">
-                    Click for Surprise!
-                 </button>
-            </motion.div>
-        )}
+      {poppedCount >= 5 && !showEffects && (
+          <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-8 z-10"
+          >
+               <p className="text-xl text-rose-600 font-bold mb-4">You are sweeter than all of these! 🥰</p>
+               <button onClick={handleFinish} className="px-6 py-2 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition shadow-lg animate-bounce">
+                  Click for Surprise!
+               </button>
+          </motion.div>
+      )}
     </div>
   );
 };

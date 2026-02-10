@@ -1,10 +1,11 @@
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import EmojiShower from '../effects/EmojiShower';
 import Letter from '../ui/Letter';
+import { useNames } from '../../lib/name-context'; // <-- import context
 
 const TeddyDay = ({ onComplete }: { onComplete: () => void }) => {
+  const { boy, girl } = useNames(); // <-- get boy and girl names
   const [hugCount, setHugCount] = useState(0);
   const [showEffects, setShowEffects] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
@@ -27,11 +28,12 @@ const TeddyDay = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="max-w-xl mx-auto text-center relative p-8">
       <EmojiShower active={showEffects} emojis={['🧸', '🤗', '🤎', '✨', '🍯']} duration={5000} density="high" />
+      
       <Letter
         isOpen={showLetter}
         onClose={handleClose}
-        message="My dearest, just like a teddy bear, I want to be your comfort, your warmth, and your safe place forever. When the world feels cold, I promise to hold you close and never let go. You are my softest hug and my sweetest dream come true. Happy Teddy Day, my love! 🧸🤎"
-        signature="Your Cuddly Bear, Love"
+        message={`My dearest ${girl}, just like a teddy bear, I want to be your comfort, your warmth, and your safe place forever. When the world feels cold, I promise to hold you close and never let go. You are my softest hug and my sweetest dream come true. Happy Teddy Day, my ${boy}! 🧸🤎`}
+        signature={`Your Cuddly Bear, ${boy}`}
       />
 
       <motion.h2
