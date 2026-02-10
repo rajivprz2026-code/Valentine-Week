@@ -1,8 +1,8 @@
-
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import EmojiShower from './effects/EmojiShower';
 import Letter from './ui/Letter';
+import { useNames } from '../lib/name-context';
 
 interface RosePlantingProps {
   onRoseComplete: () => void;
@@ -10,9 +10,7 @@ interface RosePlantingProps {
 
 const STAGES = 5;
 
-// (Existing sub-components: WaterDropInner, WaterDrop, WaterDropAnimated, Pot, Stem, Leaf, RoseBud, Seed, Sprout)
-// Re-declaring them here to keep the file self-contained in this replacement.
-
+// Sub-components (WaterDropInner, WaterDrop, WaterDropAnimated, Pot, Stem, Leaf, RoseBud, Seed, Sprout) remain the same
 const WaterDropInner = ({ x }: { x: number }) => (
   <div className="absolute pointer-events-none text-2xl" style={{ left: `${x}%`, top: "20%" }}>💧</div>
 );
@@ -85,8 +83,9 @@ const RoseBud = ({ stage }: { stage: number }) => {
 const Seed = () => (<motion.g animate={{ y: [0, -3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}><ellipse cx="100" cy="255" rx="6" ry="4" fill="hsl(30, 40%, 30%)" /></motion.g>);
 const Sprout = () => (<motion.g initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, type: "spring" }} style={{ transformOrigin: "100px 255px" }}><path d="M100,255 Q95,245 92,248 Q96,240 100,242 Q104,240 108,248 Q105,245 100,255" fill="hsl(120, 50%, 40%)" /></motion.g>);
 
-
 const RosePlanting = ({ onRoseComplete }: RosePlantingProps) => {
+  const { boy, girl } = useNames(); // <-- get dynamic names
+
   const [stage, setStage] = useState(0);
   const [waterDrops, setWaterDrops] = useState<{ id: number; x: number }[]>([]);
   const [dropCounter, setDropCounter] = useState(0);
@@ -133,13 +132,13 @@ const RosePlanting = ({ onRoseComplete }: RosePlantingProps) => {
       <Letter 
         isOpen={showLetter} 
         onClose={handleClose} 
-        message="My darling Appuu, on this Rose Day, I want to tell you that you are the most beautiful flower in the garden of my life. Just as a rose spreads fragrance, you have filled my life with the scent of your love. Every petal of my heart belongs to you, and I promise to nurture our love with growing affection and care, forever and always. Happy Rose Day, my love! 🌹"
-        signature="Eternally Yours, Love"
+        message={`My darling ${girl}, on this Rose Day, I want to tell you that you are the most beautiful flower in the garden of my life. Just as a rose spreads fragrance, you have filled my life with the scent of your love. Every petal of my heart belongs to you, and I promise to nurture our love with growing affection and care, forever and always. Happy Rose Day! 🌹`}
+        signature={`Eternally Yours, ${boy}`} // <-- dynamic boy's name
       />
 
       <motion.div className="max-w-xl mx-auto text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
         <h2 className="font-display text-4xl sm:text-5xl md:text-7xl text-rose-deep mb-2">Plant Our Rose</h2>
-        <p className="font-heading text-base sm:text-lg md:text-xl text-muted-foreground italic mb-8 sm:mb-12">Let's Plant Our Rose Together babe 🌱</p>
+        <p className="font-heading text-base sm:text-lg md:text-xl text-muted-foreground italic mb-8 sm:mb-12">Let's Plant Our Rose Together, babe 🌱</p>
 
         <div className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto mb-8 sm:mb-10">
           <AnimatePresence>{waterDrops.map((drop) => (<WaterDropAnimated key={drop.id} x={drop.x} />))}</AnimatePresence>
@@ -164,7 +163,7 @@ const RosePlanting = ({ onRoseComplete }: RosePlantingProps) => {
             <motion.div className="h-full rounded-full gradient-romantic" initial={{ width: 0 }} animate={{ width: `${progress}%` }} transition={{ duration: 0.5 }} />
           </div>
           <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-heading">
-            {stage >= STAGES ? "🌹 Our rose has bloomed! 🌹" : `Growth: ${stage}/${STAGES} — Keep watering!`}
+            {stage >= STAGES ? `🌹 ${girl}'s rose has bloomed! 🌹` : `Growth: ${stage}/${STAGES} — Keep watering!`}
           </p>
         </div>
 
