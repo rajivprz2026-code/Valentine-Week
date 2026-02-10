@@ -87,7 +87,7 @@ const ProposeDay = ({ onComplete }: { onComplete: () => void }) => {
           />
         </div>
         <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-heading">
-            {step === 5 ? `Forever Yours! ❤️` : `${step}/5 — Keep going, ${boy}!`}
+            {step === 5 ? `Forever Yours! ❤️` : `${step}/5 — Keep going, ${girl}!`}
         </p>
       </div>
 
