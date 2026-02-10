@@ -5,23 +5,16 @@ interface CountDownTimerProps {
 }
 
 const CountDownTimer: React.FC<CountDownTimerProps> = ({ targetDate }) => {
-  // ⏪ Make the target date 3 days earlier
-  const adjustedTargetDate = new Date(
-    targetDate.getTime() - 3 * 24 * 60 * 60 * 1000
-  );
-
-  const [timeLeft, setTimeLeft] = useState<number>(
-    adjustedTargetDate.getTime() - new Date().getTime()
-  );
+  const [timeLeft, setTimeLeft] = useState<number>(targetDate.getTime() - new Date().getTime());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const diff = adjustedTargetDate.getTime() - new Date().getTime();
+      const diff = targetDate.getTime() - new Date().getTime();
       setTimeLeft(diff > 0 ? diff : 0);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [adjustedTargetDate]);
+  }, [targetDate]);
 
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
