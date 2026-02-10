@@ -1,11 +1,15 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { differenceInSeconds, startOfDay, isBefore, isAfter } from 'date-fns';
+import { differenceInSeconds, isBefore } from 'date-fns';
 import RosePlanting from './RosePlanting';
 import ProposeDay from './days/ProposeDay';
 import ChocolateDay from './days/ChocolateDay';
 import TeddyDay from './days/TeddyDay';
+import PromiseDay from './days/PromiseDay';
+import HugDay from './days/HugDay';
+import KissDay from './days/KissDay';
+import ValentineDay from './days/ValentineDay';
 
 // Initial Year for Valentine Week (Current Year)
 const CURRENT_YEAR = new Date().getFullYear();
@@ -96,6 +100,10 @@ const ValentineWeek = () => {
             case 'propose': return <ProposeDay onComplete={() => {}} />;
             case 'chocolate': return <ChocolateDay onComplete={() => {}} />;
             case 'teddy': return <TeddyDay onComplete={() => {}} />;
+            case 'promise': return <PromiseDay onComplete={() => {}} />;
+            case 'hug': return <HugDay onComplete={() => {}} />;
+            case 'kiss': return <KissDay onComplete={() => {}} />;
+            case 'valentine': return <ValentineDay onComplete={() => {}} />;
             default: return (
                 <div className="flex flex-col items-center justify-center h-64 text-center p-8">
                     <span className="text-4xl mb-4">🎁</span>
