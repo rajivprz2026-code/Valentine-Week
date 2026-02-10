@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useNames } from "../lib/name-context"; // <-- import context
 
 const RoseFooter = () => {
+  const { boy, girl } = useNames(); // <-- get names
+
   return (
     <footer className="py-10 bg-burgundy text-center relative overflow-hidden">
       {/* Decorative top border */}
@@ -20,8 +23,8 @@ const RoseFooter = () => {
           Made with Love
         </p>
         <p className="font-heading text-base md:text-lg text-rose-blush/80">
-          By <span className="text-warm font-semibold">Love</span> for his lovely baby{" "}
-          <span className="text-warm font-semibold">Appuu</span> 💕
+          By <span className="text-warm font-semibold">{boy}</span> for his lovely baby{" "}
+          <span className="text-warm font-semibold">{girl}</span> 💕
         </p>
         <p className="font-body text-xs sm:text-sm text-rose-blush/50 mt-1">
           7th – 14th February • Valentine's Week 🌹
